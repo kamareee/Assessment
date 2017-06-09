@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding= "UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="data-mapper">
+    <select id="selectAllWebsite" resultType="com.kamaruddin.websiteranking.MyData">
+        select * from website order by id asc
+    </select>
+ 
+    <select id ="selectOneWebsite" resultType="com.kamaruddin.websiteranking.MyData">
+        select * from website where id = #{id}
+    </select>
+ 
+    <insert id ="insertWebsite" parameterType="com.kamaruddin.websiteranking.MyData">
+        insert into website (date, website, visits) values (#{date}, #{website}, #{visits})
+    </insert>
+ 
+    <delete id="deleteWebsite" parameterType="int">
+        delete from website where id = #{id}
+    </delete>
+</mapper>
